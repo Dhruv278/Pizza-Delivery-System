@@ -1,6 +1,4 @@
-Absolutely! Here's the final README content that you can directly copy and paste into GitHub for your Pizza Palace online pizza ordering system backend:
 
-```markdown
 # Pizza Palace - Online Pizza Ordering System (Backend)
 
 Welcome to Pizza Palace! This backend application serves as the core system for managing pizza orders, restaurant data, and user interactions in our online pizza ordering platform.

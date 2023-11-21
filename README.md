@@ -15,10 +15,11 @@ Welcome to Pizza Palace! This backend application serves as the core system for 
    cd pizza-palace-backend
    npm install
    ```
+   
 
 3. **Set up environment variables:**
 
-   Create a `.env` file in the root directory of the project. Define the following environment variables:
+   Create a `config.env` file in the root directory of the project. Define the following environment variables:
 
    ```plaintext
    DATABASE=
@@ -31,7 +32,11 @@ Welcome to Pizza Palace! This backend application serves as the core system for 
    MYMAIL_PASSWORD=
    NODE_ENV=
    ```
-
+   
+4. Start Server
+     ```bash
+   npm start
+   ```
 ## API Endpoints
 
 ### Authentication

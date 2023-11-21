@@ -23,11 +23,10 @@ module.exports=class Email{
             to:this.to,
             subject,
             html
-            // html
+            
         }
-        // console.log('inside email 2')
+       
     // send mail
-   
    await this.newTransport().sendMail(mailOption)
    
     
@@ -36,7 +35,7 @@ module.exports=class Email{
     }
 async welcomeMail(){
  await   this.send("Welcome To Pizza Palace",emailTemplates.welcomeMail())
-//  console.log('inside email 1')
+
 }
 
 }

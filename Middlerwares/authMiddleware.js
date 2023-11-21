@@ -8,7 +8,7 @@ const User=require('../Schema/userSchema');
 
 exports.isAuthenticatedUser=catchAsync(async(req,res,next)=>{
     const {token}=req.cookies
-    console.log(token)
+
 
     if(!token){
         return next(new ErrorHandler('Login first to access this resource',401));
@@ -21,9 +21,9 @@ exports.isAuthenticatedUser=catchAsync(async(req,res,next)=>{
 })
 
 exports.authorizeRole=(...roles)=>{
-    console.log(roles)
+
     return (req,res,next)=>{
-        console.log(req.user)
+
         if(!roles.includes(req.user.role)){
             new next(new ErrorHandler(`${req.user.role} not aollowed to use this content`,403));
         }

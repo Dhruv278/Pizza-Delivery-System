@@ -59,7 +59,7 @@ const UserSchema = mongoose.Schema({
 
 UserSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, 12);
-    console.log(this.password)
+
     next()
 });
 
@@ -72,8 +72,7 @@ UserSchema.methods.getJwtToken = function () {
 
 // Check password for login
 UserSchema.methods.comparePassword = async (enterpassword, userpassword) => {
-    console.log(enterpassword,userpassword);
-    console.log(typeof(enterpassword),typeof(userpassword))
+
     return await bcrypt.compare(enterpassword, userpassword)
 
 };

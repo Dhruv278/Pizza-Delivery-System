@@ -18,7 +18,7 @@ exports.addRestaurant = catchAsync(async (req, res, next) => {
         menuItems: req.body.menuItems,
         owner: req.body.owner
     })
-    console.log(req.body.menuItems)
+
     res.status(200).json({
         status: true,
         restaurant
@@ -41,7 +41,7 @@ exports.getMyAllRestaurants = catchAsync(async (req, res, next) => {
     const city = req.user.city;
     const resPerPage = 8;
     const restraurantCount = await Restaurant.countDocuments({ city, status: 'online' });
-    console.log(restraurantCount)
+
     if (restraurantCount === 0) return next(new ErrorHandler('No online restaurant found in your city', 404));
 
     // Apply filter search and doing serverside pagination
@@ -112,8 +112,8 @@ exports.addMenuItem = catchAsync(async (req, res, next) => {
     const restaurant = req.restaurant;
     const newItemSlug = createUniqueSlug(restaurant.id, newItem.itemName);
     const item = restaurant.menuItems.filter(item => item.slug === newItemSlug);
-    console.log(item)
-    console.log("done")
+
+
     if (item.length != 0) return next(new ErrorHandler('Item is already there in the Menu', 500));
 
     restaurant.menuItems.push(newItem);

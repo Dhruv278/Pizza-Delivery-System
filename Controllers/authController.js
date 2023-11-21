@@ -36,7 +36,6 @@ exports.signin=catchAsync(async(req,res,next)=>{
 
 
     const user=await User.findOne({email}).select('+password');
-    console.log(user)
 
     if(!user){
         return next(new ErrorHandler('Invalid Email or Password',401))
@@ -45,7 +44,8 @@ exports.signin=catchAsync(async(req,res,next)=>{
 
     // checking if password is correct 
     const isPasswordMatched=await user.comparePassword(password,user.password) ;
-    console.log(isPasswordMatched)
+
+    
     if(!isPasswordMatched){
         return next(new ErrorHandler('Invalid Email or Password',401));
 

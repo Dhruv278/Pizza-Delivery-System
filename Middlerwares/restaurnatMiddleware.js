@@ -10,7 +10,7 @@ const { restart } = require('nodemon');
 
 exports.checkRestaurantOwner=catchAsync(async(req,res,next)=>{
     const {token}=req.cookies
-    console.log(token)
+   
 
     if(!token){
         return next(new ErrorHandler('Login first to access this resource',401));
@@ -21,9 +21,12 @@ exports.checkRestaurantOwner=catchAsync(async(req,res,next)=>{
     req.user=await User.findById(decoded.id);
     const resId=req.params.resId;
     const restaurant=await Restaurant.findById(resId);
+
     if(!restaurant)return next(new ErrorHandler('Enter valid restaurant id',500));
-    console.log(typeof(restaurant.owner,toString()) ,typeof(req.user.id))
+   
+    // checking owner's Id 
     if(restaurant.owner.toString()!==req.user.id.toString())return next(new ErrorHandler('You are not allowed to perform this action',500))
+    
     req.restaurant=restaurant;
     next();
 })

@@ -4,9 +4,9 @@ const ErrorHandler=require('../errorHandling/ErrorFormate');
 module.exports=(err,req,res,next)=>{
     err.statusCode=err.statusCode || 500;
     err.message=err.message || 'Internal Server Error ';
-    // console.log(err)
+
     if(process.env.NODE_ENV==='DEVELOPMENT'){
-        // console.log("worrrrrrrrrrrrrrrrrrrrk")
+
         res.status(err.statusCode).json({
             success:false,
             error:err,
@@ -21,7 +21,6 @@ module.exports=(err,req,res,next)=>{
 
         error.message=err.message;
 
-        console.log("working++++++++++")
         // wrong mongose Object Id error
         if(err.name=='CastError'){
             const message=`Resource not found. Invalid :${err.path}`
@@ -31,7 +30,7 @@ module.exports=(err,req,res,next)=>{
      
         // Handling Mongoose VAlidation error 
         if(err.name=='ValidationError'){
-            // console.log(err.erro)
+
             const message=Object.values(err.errors).map(value=>value.message);
             error=new ErrorHandler(message,400)
             

@@ -35,13 +35,8 @@ module.exports=class Email{
 
     }
 async welcomeMail(){
- await   this.send("Verification",emailTemplates.welcomeMail())
+ await   this.send("Welcome To Pizza Palace",emailTemplates.welcomeMail())
 //  console.log('inside email 1')
 }
-async passwordEmail(){
-    await this.send('ForgotPaswword','Reset Password')
-}
-async verificationMail(){
-    await this.send("ForgotPaswword",'Verifiction Account')
-}
+
 }

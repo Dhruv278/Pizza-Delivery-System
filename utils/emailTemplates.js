@@ -93,7 +93,7 @@ exports.welcomeMail=()=>{
             <p>Hi there!</p>
             <p>We're excited to welcome you to Pizza Palace, your favorite destination for delicious pizzas delivered right to your doorstep.</p>
             <p>Start exploring our mouth-watering menu and place your first order!</p>
-            <a href="https://www.yourpizzapalacewebsite.com/menu" class="btn">Explore Menu</a>
+            <a href="http://127.0.0.1:3000/v1/restaurant/get" class="btn">Explore Menu</a>
             <p>If you have any questions or need assistance, don't hesitate to contact our support team.</p>
             <p>Enjoy your pizza!</p>
             <p class="footer">Best regards,<br>Your Pizza Palace Team</p>
